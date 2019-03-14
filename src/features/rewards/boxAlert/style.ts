@@ -3,10 +3,12 @@
 * You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
+import { Type } from './index'
 import styled from 'styled-components'
 
 interface StyleProps {
   modal?: boolean
+  type?: Type
 }
 
 export const StyledWrapper = styled<{}, 'div'>('div')`
@@ -25,11 +27,11 @@ export const StyledAlertIcon = styled<{}, 'div'>('div')`
   color: #15A4FA;
 `
 
-export const StyledInfo = styled<{}, 'div'>('div')`
+export const StyledInfo = styled<StyleProps, 'div'>('div')`
   font-size: 14px;
   letter-spacing: 0;
   line-height: 18px;
-  padding: 12px 15px 0px 11px;
+  padding: ${p => p.type === 'tips' ? '12' : '20'}px 15px 0px 11px;
   vertical-align: top;
   max-width: 387px;
 `
